@@ -44,10 +44,12 @@ void call(Map parameters = [:]) {
     piperStageWrapper (script: script, stageName: stageName, stashContent: [], stageLocking: false) {
         if (!config.host) {
             cloudFoundryCreateServiceKey script: parameters.script
+            echo "AJ: Config replicated"
         }
         if (config.atcSystemConfigFilePath) {
           abapEnvironmentPushATCSystemConfig script: parameters.script
         }
+        echo "AJ: Now run ATC Check"
         abapEnvironmentRunATCCheck script: parameters.script
     }
 }
