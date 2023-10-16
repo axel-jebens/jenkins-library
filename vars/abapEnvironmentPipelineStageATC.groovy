@@ -43,7 +43,6 @@ void call(Map parameters = [:]) {
 
     piperStageWrapper (script: script, stageName: stageName, stashContent: [], stageLocking: false) {
         echo "AJ: Start of call"
-        echo parameters.script.inspect()
         if (!config.host) {
           echo "AJ: Enter IF for config.host"
           cloudFoundryCreateServiceKey script: parameters.script
