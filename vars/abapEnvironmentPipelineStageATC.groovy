@@ -43,15 +43,20 @@ void call(Map parameters = [:]) {
 
     piperStageWrapper (script: script, stageName: stageName, stashContent: [], stageLocking: false) {
         echo "AJ: Start of call"
-        if (!config.host) {
-          echo "AJ: Enter IF for config.host"
-          cloudFoundryCreateServiceKey script: parameters.script
-        }
-        if (config.atcSystemConfigFilePath) {
-          echo "AJ: PushATCConfig"
-          abapEnvironmentPushATCSystemConfig script: parameters.script
-        }
-        echo "AJ: Run ATC Check"
+
+        cloudFoundryCreateServiceKey(script: parameters.script, CfServiceKeyName: 'sap_com_0901', CfServiceKeyConfig: '{"scenario_id":"SAP_COM_0901","type":"basic"}' CfAsync: false)
+        cloudFoundryCreateServiceKey(script: parameters.script, CfServiceKeyName: 'sap_com_0763', CfServiceKeyConfig: '{"scenario_id":"SAP_COM_0763","type":"basic"}' CfAsync: false)
+        cloudFoundryCreateServiceKey(script: parameters.script, CfServiceKeyName: 'sap_com_0193', CfServiceKeyConfig: '{"scenario_id":"SAP_COM_0193","type":"basic"}' CfAsync: false)
+
+        //if (!config.host) {
+        //  echo "AJ: Enter IF for config.host"
+        //  cloudFoundryCreateServiceKey script: parameters.script
+        //}
+        //if (config.atcSystemConfigFilePath) {
+        //  echo "AJ: PushATCConfig"
+        //  abapEnvironmentPushATCSystemConfig script: parameters.script
+        //}
+        //echo "AJ: Run ATC Check"
         abapEnvironmentRunATCCheck script: parameters.script
     }
 }
