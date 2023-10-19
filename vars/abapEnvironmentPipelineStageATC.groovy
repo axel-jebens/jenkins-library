@@ -45,8 +45,8 @@ void call(Map parameters = [:]) {
         echo "AJ: Start of call"
 
         //cloudFoundryCreateServiceKey(script: parameters.script, CfServiceKeyName: 'sap_com_0901', CfServiceKeyConfig: `{"scenario_id":"SAP_COM_0901","type":"basic"}`, CfAsync: false)
-        cloudFoundryCreateServiceKey(script: parameters.script, CfServiceKeyName: 'sap_com_0763', CfServiceKeyConfig: '{"scenario_id":"SAP_COM_0763","type":"basic"}', CfAsync: false)
-        cloudFoundryCreateServiceKey(script: parameters.script, CfServiceKeyName: 'sap_com_0193', CfServiceKeyConfig: '{"scenario_id":"SAP_COM_0193","type":"basic"}', CfAsync: false)
+        cloudFoundryCreateServiceKey(script: parameters.script, cfServiceKeyName: 'sap_com_0763', cfServiceKeyConfig: '{"scenario_id":"SAP_COM_0763","type":"basic"}', cfAsync: false)
+        cloudFoundryCreateServiceKey(script: parameters.script, cfServiceKeyName: 'sap_com_0193', cfServiceKeyConfig: '{"scenario_id":"SAP_COM_0193","type":"basic"}', cfAsync: false)
 
         //if (!config.host) {
         //  echo "AJ: Enter IF for config.host"
