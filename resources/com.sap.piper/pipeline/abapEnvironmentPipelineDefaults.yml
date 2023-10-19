@@ -23,9 +23,6 @@ stages:
 
   'ATC':
     ordinal: 40
-    cfServiceKeyName: 'sap_com_0901'
-    cfServiceKeyConfig: '{"scenario_id":"SAP_COM_0901","type":"basic"}'
-    cfAsync: false
 
   'AUnit':
     ordinal: 50
